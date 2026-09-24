@@ -37,3 +37,4 @@ def test_ejercicios():
 if __name__ == "__main__":
     test_ejercicios()
 
+unittest.main()
