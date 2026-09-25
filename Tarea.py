@@ -14,6 +14,30 @@ def fizz_buzz_sequence(limit=100):
     return [fizz_buzz_val(i) for i in range(1, limit + 1)]
 
 
+def list2num(digits):
+    """Convierte una lista de digitos en el numero que representa."""
+    return int("".join(str(digit) for digit in digits))
+
+
+def expand(sequence):
+    """Describe cada grupo consecutivo como cantidad y valor."""
+    if not sequence:
+        return []
+
+    expanded = []
+    current_value = sequence[0]
+    count = 1
+    for value in sequence[1:]:
+        if value == current_value:
+            count += 1
+        else:
+            expanded.extend([count, current_value])
+            current_value = value
+            count = 1
+    expanded.extend([count, current_value])
+    return expanded
+
+
 def test_ejercicios():
     # Tests para FizzBuzz
     assert fizz_buzz_val(3) == "Fizz"
@@ -36,5 +60,3 @@ def test_ejercicios():
 # Ejecutar los tests
 if __name__ == "__main__":
     test_ejercicios()
-
-unittest.main()
